@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Штука для Кости</title>
+</head>
+<body>
+<img src="https://demotivatorium.ru/sstorage/3/2019/05/05192514401984/demotivatorium_ru_sobakaulibaka_174167.jpg" alt="12">
+<script>
+    const currentUrl = new URL(window.location.href);
+    const scheme = currentUrl.searchParams.get('scheme');
+    const data = ':///dashboard/state_services_sdk_redirect?'
+
+    if (scheme) {
+        window.location.href = `${scheme}${data}?${currentUrl.searchParams.toString()}`
+    }
+</script>
+</body>
+</html>
