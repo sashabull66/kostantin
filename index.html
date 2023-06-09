@@ -12,7 +12,7 @@
     const data = ':///dashboard/state_services_sdk_redirect?'
 
     if (scheme) {
-        window.location.href = `${scheme}${data}?${currentUrl.searchParams.toString()}`
+        window.location.href = `${scheme}${data}${currentUrl.searchParams.toString()}`
     }
 </script>
 </body>
