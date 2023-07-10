@@ -2,18 +2,30 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Штука для Кости</title>
+    <title>Title</title>
 </head>
 <body>
-<img src="https://demotivatorium.ru/sstorage/3/2019/05/05192514401984/demotivatorium_ru_sobakaulibaka_174167.jpg" alt="12">
 <script>
-    const currentUrl = new URL(window.location.href);
-    const scheme = currentUrl.searchParams.get('scheme');
-    const data = ':///dashboard/state_services_sdk_redirect?'
-
-    if (scheme) {
-        window.location.href = `${scheme}${data}${currentUrl.searchParams.toString()}`
+    window.addEventListener('load', () => {
+        console.warn('*** Page loaded ***')
+        const params = new URL(window.location.href).searchParams;
+        const nextPageId = params.get('nextPageId')
+        if (nextPageId) {
+            window.location.replace(`ios:setPageSettings/?pageTitle=title&pageId=${pageId}`)
+        }
+        window.location.replace('ios:setPageSettings/?pageTitle=title')
+    })
+    const onClick = () => {
+        const nextUrl = window.localStorage.getItem('url');
+        const params = new URL(window.location.href).searchParams;
+        const nextPageId = params.get('nextPageId')
+        if (nextUrl) window.location.href = nextUrl;
+        else {
+            window.location.href = `http://localhost:9090/partner-offers?theme=light&device_app_id=D5BE307F-B93C-492E-98FA-135407A33FD3&device_uuid=57E56A16-00AD-41BD-96C6-8FFF6DE6D92C&applicationId=com.aweassist.app&device_locale=ru-US&device_id=D4C5B604-4C58-4CC5-8713-58558FB6D2D5&device_os_version=iOS%2016.0&client_id=mobile-app&device_timezone=+0300&device_boot_time=155982&scope=openid%20mobile-bank&device_model=x86_64&device_name=Phone&device_app_version=13.2.0&is_webview=v2&nextPageId=${nextPageId + 1 }`
+        }
     }
 </script>
+<button style="padding: 25px; background-color: blueviolet; color: white; font-size: 23px" onclick="onClick()">Open WEBVIEW</button>
+<br>
 </body>
 </html>
